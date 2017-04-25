@@ -8,7 +8,7 @@ import java.util.EnumSet;
  */
 
 //Osoba jest od razu klientem
-public class User {
+public abstract class User {
 
     private static int counter;
 
@@ -37,8 +37,28 @@ public class User {
      */
     private String phoneNumber;
 
-    //Tutaj przechowuję kilka wartości enum
+    //-----------EMPLOYEE-----------
+    /**
+     * Data zatrudnienia
+     */
+    private Date hireDate;
+
+    /**
+     * Pensja
+     */
+    private double salary;
+
+    //-----------CONTESTANT-----------
+    /**
+     * Numer startowy
+     */
+    private int contestantNumber;
+
+    //overlapping
     private EnumSet<UserType> userType = EnumSet.<UserType>of(UserType.User);
+
+    //dynamic
+    private EnumSet<EmployeeType> empType = EnumSet.<EmployeeType>of(EmployeeType.Employee);
 
     public User(String name, String surname, Date birthDate, String phoneNumber){
         this.userId = counter++;
@@ -47,8 +67,6 @@ public class User {
         this.birthDate = birthDate;
         this.phoneNumber = phoneNumber;
     }
-
-
 
     public String getName() {
         return name;

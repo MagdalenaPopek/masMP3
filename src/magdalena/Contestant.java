@@ -1,17 +1,22 @@
+/*
 package magdalena;
 
+*/
 /**
  * Created by Magdalena on 2017-04-22.
- */
+ *//*
+
 
 
 public class Contestant extends User{
 
     private static int counter;
 
-    /**
+    */
+/**
      *  Numer zawodnika
-     */
+     *//*
+
 
     private int contestantNumber;
 
@@ -26,3 +31,4 @@ public class Contestant extends User{
 
 
 }
+*/

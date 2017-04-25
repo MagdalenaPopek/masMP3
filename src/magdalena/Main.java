@@ -19,7 +19,7 @@ public class Main {
 
         /**
          * KLASA ABSTRAKCYJNA I POLIMORFIZM METOD
-         * Employee > Groom, Instructor,, Trainer
+         * Employee > Groom, Instructor, Trainer
          */
 
         /**
@@ -29,7 +29,7 @@ public class Main {
 
         /**
          * WIELODZIEDZICZENIE
-         * User > VipUser, C, O, E
+         * User > VipUser, COE
          */
 
         /**

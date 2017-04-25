@@ -1,39 +1,32 @@
 package magdalena;
 
 import java.util.Date;
-import java.util.HashSet;
 
 /**
- * Created by Magdalena on 2017-04-22.
+ * Created by Magdalena on 2017-04-26.
  */
-public class Competition{
+public abstract class Competition {
 
     /**
-     * Nazwa zawodów
+     * Nazwa
      */
-    private String name;
+    private String compName;
 
     /**
-     * Numer zawodów
+     * Klasa
      */
-    private String competitionNumber;
+    private CompetitionLevel competitionLevel;
 
     /**
-     * Data zawodów
+     * Data
      */
     private Date date;
 
-    public Competition(Date date, String name, String competitionNumber) {
+    public Competition(String compName, CompetitionLevel competitionLevel, Date date){
+        this.compName = compName;
+        this.competitionLevel = competitionLevel;
         this.date = date;
-        this.name = name;
-        this.competitionNumber = competitionNumber;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public String getCompetitionNumber() {
-        return competitionNumber;
-    }
 }

@@ -1,8 +1,8 @@
 package magdalena;
 
 /**
- * Created by Magdalena on 2017-04-22.
+ * Created by Magdalena on 2017-04-25.
  */
 public enum UserType {
-    User, Owner, Employee, Contestant;
+    User, Contestant, Employee;
 }

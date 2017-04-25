@@ -18,13 +18,25 @@ public class Instructor extends Employee{
     private int permissionNumber;
 
     /**
-     * Bonus
+     * Premia od ilości jazd
      */
-    private double bonus;
+    private double lessonBonus;
 
     public Instructor(User user, Date hireDate, double salary, int odznakaNumber, int permissionNumber) {
         super(user, hireDate, salary);
         this.odznakaNumber = odznakaNumber;
         this.permissionNumber = permissionNumber;
+    }
+
+    public double getLessonBonus() {
+        return lessonBonus;
+    }
+
+    public void setLessonBonus(double lessonBonus) {
+        this.lessonBonus = lessonBonus;
+    }
+
+    public double getIncome(){
+        return getSalary() + getSalary()*getBonus()/100 + this.lessonBonus;
     }
 }
