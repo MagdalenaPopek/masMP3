@@ -1,33 +1,34 @@
-/*
+
 package magdalena;
 
 import java.util.Date;
 
-*/
+
 /**
  * Created by Magdalena on 2017-04-22.
- * <p>
- * Premia od ilości wykonanych zadań
- *//*
+ */
 
 public class Groom extends Employee {
 
-    */
-/**
- * Premia od ilości wykonanych zadań
- *//*
+
+    /**
+     * Premia od ilości wykonanych zadań
+     */
 
     private double tasksBonus;
 
-    public Groom(double tasksBonus) {
+    public Groom(Employee emp, double tasksBonus) {
+        super(emp.getUser(), emp.getHireDate(), emp.getSalary());
         this.tasksBonus = tasksBonus;
     }
 
-    */
-/*public Groom(User user, Date hireDate, double salary) {
+    public Groom(User user, Date hireDate, double salary) {
         super(user, hireDate, salary);
-    }*//*
+    }
 
+    public Groom(String name, String surname, Date birthDate, String phoneNumber, Date hireDate, double salary) {
+        super(name, surname, birthDate, phoneNumber, hireDate, salary);
+    }
 
     public double getTasksBonus() {
         return tasksBonus;
@@ -37,10 +38,10 @@ public class Groom extends Employee {
         this.tasksBonus = tasksBonus;
     }
 
- */
-/*   public double getIncome(){
-        return getSalary() + getSalary()*getBonus()/100 + this.tasksBonus;
-    }*//*
+    @Override
+    public double getIncome() {
+        return getSalary() + getSalary() * tasksBonus / 100;
+    }
 
 }
-*/
+

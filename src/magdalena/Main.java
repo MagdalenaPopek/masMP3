@@ -27,7 +27,7 @@ public class Main {
          */
 
         User testUser = new User("Anna", "K", date, "333");
-        Employee.createEmployee(testUser, date, 1234);
+        Client.createClient(testUser, 173, LevelType.advanced);
         Contestant.createContestant(testUser);
         testUser.showAllPeople();
 
@@ -42,5 +42,8 @@ public class Main {
         /**
          * DYNAMIC
          */
+
+        Employee groom = new Groom(testUser, date, 12334);
+        groom = new Instructor(groom, "1222", "12226");
     }
 }

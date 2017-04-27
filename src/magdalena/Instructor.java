@@ -1,49 +1,53 @@
-/*
+
 package magdalena;
 
 import java.util.Date;
 
-*/
+
 /**
  * Created by Magdalena on 2017-04-23.
- * <p>
- * Numer odznaki
- * <p>
- * Numer uprawnień
- * <p>
- * Premia od ilości jazd
- *//*
+ */
 
-public class Instructor extends Employee{
+public class Instructor extends Employee {
 
-    */
-/**
- * Numer odznaki
- *//*
 
-    private int odznakaNumber;
+    /**
+     * Numer odznaki
+     */
 
-    */
-/**
- * Numer uprawnień
- *//*
+    private String odznakaNumber;
 
-    private int permissionNumber;
 
-    */
-/**
- * Premia od ilości jazd
- *//*
+    /**
+     * Numer uprawnień
+     */
+
+    private String permissionNumber;
+
+
+    /**
+     * Premia od ilości jazd
+     */
 
     private double lessonBonus;
 
-    */
-/*public Instructor(User user, Date hireDate, double salary, int odznakaNumber, int permissionNumber) {
+    public Instructor(Employee emp, String odznakaNumber, String permissionNumber) {
+        super(emp.getUser(), emp.getHireDate(), emp.getSalary());
+        this.odznakaNumber = odznakaNumber;
+        this.permissionNumber = permissionNumber;
+    }
+
+    public Instructor(User user, Date hireDate, double salary, String odznakaNumber, String permissionNumber) {
         super(user, hireDate, salary);
         this.odznakaNumber = odznakaNumber;
         this.permissionNumber = permissionNumber;
-    }*//*
+    }
 
+    public Instructor(String name, String surname, Date birthDate, String phoneNumber, Date hireDate, double salary, String odznakaNumber, String permissionNumber) {
+        super(name, surname, birthDate, phoneNumber, hireDate, salary);
+        this.odznakaNumber = odznakaNumber;
+        this.permissionNumber = permissionNumber;
+    }
 
     public double getLessonBonus() {
         return lessonBonus;
@@ -53,10 +57,11 @@ public class Instructor extends Employee{
         this.lessonBonus = lessonBonus;
     }
 
-   */
-/* public double getIncome(){
-        return getSalary() + getSalary()*getBonus()/100 + this.lessonBonus;
-    }*//*
+
+    @Override
+    public double getIncome() {
+        return getSalary() + lessonBonus;
+    }
 
 }
-*/
+

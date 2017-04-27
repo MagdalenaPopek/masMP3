@@ -14,34 +14,34 @@ public class User {
     /**
      * Numer (id) użytkownika
      */
-    private int userId;
+    protected int userId;
 
     /**
      * Imie
      */
-    private String name;
+    protected String name;
 
     /**
      * Nazwisko
      */
-    private String surname;
+    protected String surname;
 
     /**
      * Data urodzenia
      */
-    private Date birthDate;
+    protected Date birthDate;
 
     /**
      * Numer telefonu
      */
-    private String phoneNumber;
+    protected String phoneNumber;
 
     //-----EMPLOYEE y EL CONCURSANTE
     private Vector<Contestant> contestants = new Vector<>();
     private static HashSet<Contestant> allCont = new HashSet<>();
 
-    private Vector<Employee> emps = new Vector<>();
-    private static HashSet<Employee> allEmp = new HashSet<>();
+    private Vector<Client> clients = new Vector<>();
+    private static HashSet<Client> allClients = new HashSet<>();
 
     private static HashSet<User> allUsers = new HashSet<>();
     List<Object> allObjects = new ArrayList<Object>();
@@ -62,11 +62,11 @@ public class User {
         }
     }
 
-    public void addEmployee(Employee emp) {
-        if (!emps.contains(emp) && !allEmp.contains(emp)) {
-            emps.add(emp);
-            allEmp.add(emp);
-            allObjects.add(emp);
+    public void addClient(Client client) {
+        if (!clients.contains(client) && !allClients.contains(client)) {
+            clients.add(client);
+            allClients.add(client);
+            allObjects.add(client);
         }
     }
 

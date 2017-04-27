@@ -8,7 +8,7 @@ import java.util.HashSet;
  * Created by Magdalena on 2017-04-22.
  */
 
-public class Employee extends User {
+public abstract class Employee extends User {
 
 
     /**
@@ -27,25 +27,17 @@ public class Employee extends User {
      */
     private User user;
 
-    private static HashSet<User> allUsers = new HashSet<>();
 
-
-    private Employee(User user, Date hireDate, double salary) {
+    public Employee(User user, Date hireDate, double salary) {
         super(user.getName(), user.getSurname(), user.getBirthDate(), user.getPhoneNumber());
         this.hireDate = hireDate;
         this.salary = salary;
     }
 
-    public static Employee createEmployee(User user, Date hireDate, double salary) throws Exception {
-        if (user == null || allUsers.contains(user)) {
-            throw new Exception("ERROR");
-        }
-
-        Employee e = new Employee(user, hireDate, salary);
-        user.addEmployee(e);
-        allUsers.add(user);
-
-        return e;
+    public Employee(String name, String surname, Date birthDate, String phoneNumber, Date hireDate, double salary) {
+        super(name, surname, birthDate, phoneNumber);
+        this.hireDate = hireDate;
+        this.salary = salary;
     }
 
     public void setHireDate(Date hireDate) {
@@ -64,10 +56,18 @@ public class Employee extends User {
         return salary;
     }
 
+    protected double getIncome(){
+        return this.salary;
+    }
+
     @Override
     public String toString() {
         return "Pracownik " + getName()
                 + " " + getSurname()
                 + " zatrudniony " + hireDate;
+    }
+
+    public User getUser() {
+        return user;
     }
 }
