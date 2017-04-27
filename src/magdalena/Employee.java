@@ -1,6 +1,7 @@
 package magdalena;
 
 import java.util.Date;
+import java.util.HashSet;
 
 
 /**
@@ -26,6 +27,8 @@ public class Employee extends User {
      */
     private User user;
 
+    private static HashSet<User> allUsers = new HashSet<>();
+
 
     private Employee(User user, Date hireDate, double salary) {
         super(user.getName(), user.getSurname(), user.getBirthDate(), user.getPhoneNumber());
@@ -34,11 +37,13 @@ public class Employee extends User {
     }
 
     public static Employee createEmployee(User user, Date hireDate, double salary) throws Exception {
-        if (user == null) {
+        if (user == null || allUsers.contains(user)) {
             throw new Exception("ERROR");
         }
+
         Employee e = new Employee(user, hireDate, salary);
         user.addEmployee(e);
+        allUsers.add(user);
 
         return e;
     }
@@ -57,5 +62,12 @@ public class Employee extends User {
 
     public double getSalary() {
         return salary;
+    }
+
+    @Override
+    public String toString() {
+        return "Pracownik " + getName()
+                + " " + getSurname()
+                + " zatrudniony " + hireDate;
     }
 }

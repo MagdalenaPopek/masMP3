@@ -19,27 +19,28 @@ public class Main {
 
         /**
          * KLASA ABSTRAKCYJNA I POLIMORFIZM METOD
-         * Employee > Groom, Instructor, Trainer
          */
+
 
         /**
          * OVERLAPPING
-         * User > Contestant, Owner, Employee
          */
+
+        User testUser = new User("Anna", "K", date, "333");
+        Employee.createEmployee(testUser, date, 1234);
+        Contestant.createContestant(testUser);
+        testUser.showAllPeople();
 
         /**
          * WIELODZIEDZICZENIE
-         * User > VipUser, COE
          */
 
         /**
          * WIELOASPEKTOWE
-         * Contestant + Owner = OwnerContestant
          */
 
         /**
          * DYNAMIC
-         * Groom, Instructor,
          */
     }
 }

@@ -7,7 +7,7 @@ import java.util.*;
  */
 
 //Osoba jest od razu klientem
-public abstract class User {
+public class User {
 
     private static int counter;
 
@@ -36,12 +36,7 @@ public abstract class User {
      */
     private String phoneNumber;
 
-    //-----------EMPLOYEE-----------
-    /**
-     * Data zatrudnienia
-     */
-    private Date hireDate;
-
+    //-----EMPLOYEE y EL CONCURSANTE
     private Vector<Contestant> contestants = new Vector<>();
     private static HashSet<Contestant> allCont = new HashSet<>();
 
@@ -49,8 +44,9 @@ public abstract class User {
     private static HashSet<Employee> allEmp = new HashSet<>();
 
     private static HashSet<User> allUsers = new HashSet<>();
+    List<Object> allObjects = new ArrayList<Object>();
 
-    public User(String name, String surname, Date birthDate, String phoneNumber){
+    public User(String name, String surname, Date birthDate, String phoneNumber) {
         this.userId = counter++;
         this.name = name;
         this.surname = surname;
@@ -58,21 +54,19 @@ public abstract class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public void addContestant(Contestant cont){
-        if(!contestants.contains(cont)){
-            if(!allCont.contains(cont)){
-                contestants.add(cont);
-                allCont.add(cont);
-            }
+    public void addContestant(Contestant cont) {
+        if (!contestants.contains(cont) && !allCont.contains(cont)) {
+            contestants.add(cont);
+            allCont.add(cont);
+            allObjects.add(cont);
         }
     }
 
-    public void addEmployee(Employee emp){
-        if(!emps.contains(emp)){
-            if(!allEmp.contains(emp)){
-                emps.add(emp);
-                allEmp.add(emp);
-            }
+    public void addEmployee(Employee emp) {
+        if (!emps.contains(emp) && !allEmp.contains(emp)) {
+            emps.add(emp);
+            allEmp.add(emp);
+            allObjects.add(emp);
         }
     }
 
@@ -111,6 +105,7 @@ public abstract class User {
         return birthDate;
     }
 
+
     @Override
     public String toString() {
         return "Użtkownik o numerze " + userId +
@@ -118,4 +113,9 @@ public abstract class User {
                 ", nazwisko: " + surname;
     }
 
+    public void showAllPeople() {
+        for(Object o : allObjects){
+            System.out.println(o);
+        }
+    }
 }

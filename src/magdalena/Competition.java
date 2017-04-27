@@ -31,14 +31,14 @@ public abstract class Competition {
     //Rodzaj zawodów
     private EnumSet<CompetitionType> compType = EnumSet.<CompetitionType>of(CompetitionType.Competition);
 
-    public Competition(String compName, CompetitionLevel competitionLevel, Date date, double price){
+    public Competition(String compName, CompetitionLevel competitionLevel, Date date, double price) {
         this.compName = compName;
         this.competitionLevel = competitionLevel;
         this.date = date;
         this.price = price;
     }
 
-    public Competition(String compName, CompetitionLevel competitionLevel, Date date, int maxContestantNumber){
+    public Competition(String compName, CompetitionLevel competitionLevel, Date date, int maxContestantNumber) {
         this.compName = compName;
         this.competitionLevel = competitionLevel;
         this.date = date;
