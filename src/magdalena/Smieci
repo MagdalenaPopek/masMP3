@@ -1,0 +1,67 @@
+KLASA COMPETITION
+
+
+    //wszystkie dressage
+    private Vector<Dressage> dressage = new Vector<>();
+    private static HashSet<Dressage> allDressages = new HashSet<>();
+
+    //wszystkie crosscountry
+    private Vector<CrossCountry> cross = new Vector<>();
+    private static HashSet<CrossCountry> allCrosses = new HashSet<>();
+
+    //opcjonalnie wszystkie showjumping
+    private Vector<ShowJumping> showJump = new Vector<>();
+    private static HashSet<ShowJumping> allShowJumps = new HashSet<>();
+
+    //wszystkie obiekty Competition
+    private static HashSet<Competition> allComps = new HashSet<>();
+
+
+    //dodaję powiązanie z dressage
+    public void addDressage(Dressage d) throws Exception {
+        if(!dressage.contains(d)){
+            if(!allDressages.contains(d)) {
+                dressage.add(d);
+                allDressages.add(d);
+            }
+        }
+    }
+
+    //dodaję powiązanie z CrossCOuntry
+    public void addCross(CrossCountry c) throws Exception {
+        if(!cross.contains(c)){
+            if(!allCrosses.contains(c)) {
+                cross.add(c);
+                allCrosses.add(c);
+            }
+        }
+    }
+
+    //dodaję powiązanie z ShowJumping
+    public void addJumping(ShowJumping j) throws Exception {
+        if(!showJump.contains(j)){
+            if(!allShowJumps.contains(j)) {
+                showJump.add(j);
+                allShowJumps.add(j);
+            }
+        }
+    }
+
+    //Usuwam instancję obiektu Competition
+    public static void deleteCompetiton(Competition comp){
+        if(allComps.contains(comp)){
+            for (Dressage s : stable.getAllStalls()) {
+                if(!stall.getHorsesInStall().isEmpty()) {
+                    List<Horse> myNew = new ArrayList<>(stall.getHorsesInStall());
+                    for(Horse h : myNew){
+                        h.removeStall();
+                    }
+                    stall.getHorsesInStall().clear();
+                }
+                stall.removeStable(stable);
+            }
+            allStalls.clear();
+            allStables.remove(stable);
+
+        }
+    }

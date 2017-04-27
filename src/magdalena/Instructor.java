@@ -36,7 +36,7 @@ public class Instructor extends Employee{
         this.lessonBonus = lessonBonus;
     }
 
-    public double getIncome(){
+   /* public double getIncome(){
         return getSalary() + getSalary()*getBonus()/100 + this.lessonBonus;
-    }
+    }*/
 }
