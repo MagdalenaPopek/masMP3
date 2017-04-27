@@ -20,6 +20,7 @@ public class Main {
         /**
          * KLASA ABSTRAKCYJNA I POLIMORFIZM METOD
          */
+        System.out.println("----------ABSTRAKCYJNA I POLIMORFIZM----------");
         Employee emp = new Groom("A", "B", date, "12222", date, 1000);
         Employee emp2 = new Instructor("D", "B", date, "22223445", date, 1000, "22222", "33333");
         System.out.println(emp.getIncome());
@@ -28,7 +29,7 @@ public class Main {
         /**
          * OVERLAPPING
          */
-
+        System.out.println("----------OVERLAPPING----------");
         User testUser = new User("Anna", "K", date, "333");
         Client.createClient(testUser, 173, LevelType.advanced);
         Contestant.createContestant(testUser);
@@ -38,6 +39,7 @@ public class Main {
         /**
          * WIELODZIEDZICZENIE
          */
+        System.out.println("----------WIELODZIEDZICZENIE----------");
         Competition cross = new CrossCountry("Memo", CompetitionLevel.C, date, 123.0, 7, 2);
         System.out.println(cross);
         cross.setPrize(20);
@@ -45,13 +47,14 @@ public class Main {
         /**
          * WIELOASPEKTOWE
          */
+        System.out.println("----------WIELOASPEKTOWE----------");
         cross.toString();
         System.out.println(cross.getCompetitionType());
 
         /**
          * DYNAMIC
          */
-
+        System.out.println("----------DYNAMICZNE----------");
         User us = new User("A", "K", date, "000");
         Employee groom = new Groom(us, date, 12334);
         System.out.println(groom);
