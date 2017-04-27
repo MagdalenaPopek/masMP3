@@ -20,7 +20,10 @@ public class Main {
         /**
          * KLASA ABSTRAKCYJNA I POLIMORFIZM METOD
          */
-
+        Employee emp = new Groom("A", "B", date, "12222", date, 1000);
+        Employee emp2 = new Instructor("D", "B", date, "22223445", date, 1000, "22222", "33333");
+        System.out.println(emp.getIncome());
+        System.out.println(emp2.getIncome());
 
         /**
          * OVERLAPPING
@@ -31,19 +34,28 @@ public class Main {
         Contestant.createContestant(testUser);
         testUser.showAllPeople();
 
+
         /**
          * WIELODZIEDZICZENIE
          */
-
+        Competition cross = new CrossCountry("Memo", CompetitionLevel.C, date, 123.0, 7, 2);
+        System.out.println(cross);
+        cross.setPrize(20);
+        System.out.println(cross.getPrize());
         /**
          * WIELOASPEKTOWE
          */
+        cross.toString();
+        System.out.println(cross.getCompetitionType());
 
         /**
          * DYNAMIC
          */
 
-        Employee groom = new Groom(testUser, date, 12334);
+        User us = new User("A", "K", date, "000");
+        Employee groom = new Groom(us, date, 12334);
+        System.out.println(groom);
         groom = new Instructor(groom, "1222", "12226");
+        System.out.println(groom);
     }
 }

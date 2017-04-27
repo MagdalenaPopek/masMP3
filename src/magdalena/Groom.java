@@ -15,7 +15,7 @@ public class Groom extends Employee {
      * Premia od ilości wykonanych zadań
      */
 
-    private double tasksBonus;
+    private double tasksBonus = 20;
 
     public Groom(Employee emp, double tasksBonus) {
         super(emp.getUser(), emp.getHireDate(), emp.getSalary());
@@ -43,5 +43,15 @@ public class Groom extends Employee {
         return getSalary() + getSalary() * tasksBonus / 100;
     }
 
+    @Override
+    public String toString() {
+        return "Groom{" +
+                "userId=" + userId +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", birthDate=" + birthDate +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
+    }
 }
 

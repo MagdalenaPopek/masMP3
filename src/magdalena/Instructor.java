@@ -29,10 +29,10 @@ public class Instructor extends Employee {
      * Premia od ilości jazd
      */
 
-    private double lessonBonus;
+    private double lessonBonus = 10;
 
     public Instructor(Employee emp, String odznakaNumber, String permissionNumber) {
-        super(emp.getUser(), emp.getHireDate(), emp.getSalary());
+        super(emp, emp.getHireDate(), emp.getSalary());
         this.odznakaNumber = odznakaNumber;
         this.permissionNumber = permissionNumber;
     }
@@ -63,5 +63,14 @@ public class Instructor extends Employee {
         return getSalary() + lessonBonus;
     }
 
+    @Override
+    public String toString() {
+        return "Instructor{" +
+                "odznakaNumber='" + odznakaNumber + '\'' +
+                ", permissionNumber='" + permissionNumber + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                '}';
+    }
 }
 

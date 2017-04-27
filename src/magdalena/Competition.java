@@ -22,20 +22,28 @@ public abstract class Competition {
      */
     private Date date;
 
+    /**
+     * Rodzaj zawodow
+     */
+    private CompetitionType competitionType;
+
+    /**
+     * Nagroda
+     */
+    private double prize;
+
     //--------OGÓLNOPOLSKIE--------
     private double price;
 
     //--------REGIONALNE--------
     private int maxContestantNumber;
 
-    //Rodzaj zawodów
-    private EnumSet<CompetitionType> compType = EnumSet.<CompetitionType>of(CompetitionType.Competition);
-
     public Competition(String compName, CompetitionLevel competitionLevel, Date date, double price) {
         this.compName = compName;
         this.competitionLevel = competitionLevel;
         this.date = date;
         this.price = price;
+        this.competitionType = CompetitionType.Ogolnopolskie;
     }
 
     public Competition(String compName, CompetitionLevel competitionLevel, Date date, int maxContestantNumber) {
@@ -43,26 +51,38 @@ public abstract class Competition {
         this.competitionLevel = competitionLevel;
         this.date = date;
         this.maxContestantNumber = maxContestantNumber;
+        this.competitionType = CompetitionType.Regionalne;
     }
 
-
-    @Override
-    public String toString() {
-        return "Competition{" +
-                "compName='" + compName + '\'' +
-                ", competitionLevel=" + competitionLevel +
-                ", date=" + date +
-                ", price=" + price +
-                '}';
+    public void setPrize(double prize){
+        this.prize = prize;
     }
 
-    //@Override
-    public String toStringSmall() {
-        return "Competition{" +
-                "compName='" + compName + '\'' +
-                ", competitionLevel=" + competitionLevel +
-                ", date=" + date +
-                ", maxContestantNumber=" + maxContestantNumber +
-                '}';
+    public CompetitionType getCompetitionType() {
+        return competitionType;
+    }
+
+    public double getPrize() {
+        return prize;
+    }
+
+    public String getCompName() {
+        return compName;
+    }
+
+    public CompetitionLevel getCompetitionLevel() {
+        return competitionLevel;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public int getMaxContestantNumber() {
+        return maxContestantNumber;
     }
 }
