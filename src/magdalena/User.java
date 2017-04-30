@@ -36,15 +36,17 @@ public class User {
      */
     protected String phoneNumber;
 
-    //-----EMPLOYEE y EL CONCURSANTE
-    private Vector<Contestant> contestants = new Vector<>();
-    private static HashSet<Contestant> allCont = new HashSet<>();
+    //-----CLIENT y EL CONCURSANTE
+    private Contestant contestant;
+//    private Vector<Contestant> contestants = new Vector<>();
+//    private static HashSet<Contestant> allConts = new HashSet<>();
 
-    private Vector<Client> clients = new Vector<>();
-    private static HashSet<Client> allClients = new HashSet<>();
+    private Client client;
+//    private Vector<Client> clients = new Vector<>();
+//    private static HashSet<Client> allClients = new HashSet<>();
 
-    private static HashSet<User> allUsers = new HashSet<>();
-    List<Object> allObjects = new ArrayList<Object>();
+    private static ArrayList<User> allUsers = new ArrayList<>();
+    private List<Object> allObjects = new ArrayList<Object>();
 
     public User(String name, String surname, Date birthDate, String phoneNumber) {
         this.userId = counter++;
@@ -52,42 +54,64 @@ public class User {
         this.surname = surname;
         this.birthDate = birthDate;
         this.phoneNumber = phoneNumber;
-    }
-
-    public void addContestant(Contestant cont) {
-        if (!contestants.contains(cont) && !allCont.contains(cont)) {
-            contestants.add(cont);
-            allCont.add(cont);
-            allObjects.add(cont);
-        }
-    }
-
-    public void addClient(Client client) {
-        if (!clients.contains(client) && !allClients.contains(client)) {
-            clients.add(client);
-            allClients.add(client);
-            allObjects.add(client);
-        }
+        allUsers.add(this);
     }
 
 
-/*    public static void removeUser( User user){
-        if(allUsers.contains(user)){
-            for (Employee emp : user.getAllEmps()) {
-                if(!stall.getHorsesInStall().isEmpty()) {
-                    List<Horse> myNew = new ArrayList<>(stall.getHorsesInStall());
-                    for(Horse h : myNew){
-                        h.removeStall();
-                    }
-                    stall.getHorsesInStall().clear();
-                }
-                stall.removeStable(stable);
+    public User(String name, String surname, Date birthDate, String phoneNumber, int height, LevelType level) throws Exception {
+        this.userId = counter++;
+        this.name = name;
+        this.surname = surname;
+        this.birthDate = birthDate;
+        this.phoneNumber = phoneNumber;
+        allUsers.add(this);
+        Contestant.createContestant(this);
+        Client.createClient(this, height, level);
+
+    }
+
+    public static void removeUser(User user) {
+        if (allUsers.contains(user)) {
+            if(user.client != null) {
+                Client.removeUser(user);
             }
-            allStalls.clear();
-            allStables.remove(stable);
+            if(user.contestant != null){
+                Contestant.removeUser(user);
+            }
 
+            allUsers.remove(user);
         }
-    }*/
+    }
+
+ public void setClient(Client c){
+     if(this.client == null){
+         this.client = c;
+     }
+     allObjects.add(c);
+ }
+
+ public void setContestant(Contestant cont){
+     if(this.contestant == null){
+         this.contestant = cont;
+     }
+     allObjects.add(cont);
+ }
+
+    public Contestant getContestant() {
+        return contestant;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void removeContestant(Contestant contestant){
+     //CIALO METODY
+ }
+
+ public void removeClient(Client client){
+     //CIALO METODY
+ }
 
     public String getName() {
         return name;
@@ -114,8 +138,9 @@ public class User {
     }
 
     public void showAllPeople() {
-        for(Object o : allObjects){
+        for (Object o : allObjects) {
             System.out.println(o);
         }
+
     }
 }

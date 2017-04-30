@@ -23,17 +23,24 @@ public class Main {
         System.out.println("----------ABSTRAKCYJNA I POLIMORFIZM----------");
         Employee emp = new Groom("A", "B", date, "12222", date, 1000);
         Employee emp2 = new Instructor("D", "B", date, "22223445", date, 1000, "22222", "33333");
-        System.out.println(emp.getIncome());
-        System.out.println(emp2.getIncome());
+        System.out.println(emp + " " + emp.getIncome());
+        System.out.println(emp2 + " " + emp2.getIncome());
 
         /**
          * OVERLAPPING
          */
         System.out.println("----------OVERLAPPING----------");
-        User testUser = new User("Anna", "K", date, "333");
-        Client.createClient(testUser, 173, LevelType.advanced);
+        /*User testUser = new User("Anna", "K", date, "333");
+        Client ok = Client.createClient(testUser, 152, LevelType.advanced);
         Contestant.createContestant(testUser);
         testUser.showAllPeople();
+        System.out.println(a.getUser());*/
+        Client a = Client.createClient("A", "B", date, "11111", 173, LevelType.advanced);
+        User u = new User("My", "new", date, "4444", 172, LevelType.advanced);
+        u.showAllPeople();
+/*
+        Contestant.createContestant(a.getUser());
+        a.getUser().showAllPeople();*/
 
 
         /**
@@ -44,6 +51,7 @@ public class Main {
         System.out.println(cross);
         cross.setPrize(20);
         System.out.println(cross.getPrize());
+
         /**
          * WIELOASPEKTOWE
          */

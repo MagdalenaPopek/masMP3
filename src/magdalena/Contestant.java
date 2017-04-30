@@ -1,5 +1,6 @@
 package magdalena;
 
+import java.util.Date;
 import java.util.HashSet;
 
 /**
@@ -28,19 +29,40 @@ public class Contestant extends User {
         this.contestantNumber = counter++;
     }
 
+    public User getUser() {
+        return user;
+    }
+
     public static Contestant createContestant(User user) throws Exception {
         if (user == null || allUsers.contains(user)) {
             throw new Exception("ERROR");
         }
         Contestant c = new Contestant(user);
-        user.addContestant(c);
+        c.user = user;
+        user.setContestant(c);
         allUsers.add(user);
+
+        return c;
+    }
+
+    public static Contestant createContestant(String name, String surname, Date birthDate, String phoneNumber, int height, LevelType level) throws Exception {
+        User u = new User(name, surname, birthDate, phoneNumber);
+        Contestant c = new Contestant(u);
+        u.setContestant(c);
+        allUsers.add(c);
 
         return c;
     }
 
     public int getContestantNumber() {
         return contestantNumber;
+    }
+
+    public static void removeUser(User user){
+        if(allUsers.contains(user)){
+            allUsers.remove(user);
+            user.removeContestant(user.getContestant());
+        }
     }
 
     @Override

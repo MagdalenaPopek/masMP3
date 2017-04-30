@@ -5,11 +5,11 @@ package magdalena;
  */
 public interface IEnduranceRiding {
 
-    public abstract int getObstaclesNumber();
-    public abstract void setObstaclesNumber(int obstaclesNumber);
-    public abstract double getDistance();
-    public abstract void setDistance(double distance);
-    public abstract String calculateDifficulty();
+    public int getObstaclesNumber();
+    public void setObstaclesNumber(int obstaclesNumber);
+    public double getDistance();
+    public void setDistance(double distance);
+    public String calculateDifficulty();
 
 
 }

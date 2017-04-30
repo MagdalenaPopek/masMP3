@@ -45,13 +45,7 @@ public class Groom extends Employee {
 
     @Override
     public String toString() {
-        return "Groom{" +
-                "userId=" + userId +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", birthDate=" + birthDate +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                '}';
+        return "Stajenny " + name + " " + surname;
     }
 }
 

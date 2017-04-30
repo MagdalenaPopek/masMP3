@@ -65,12 +65,9 @@ public class Instructor extends Employee {
 
     @Override
     public String toString() {
-        return "Instructor{" +
-                "odznakaNumber='" + odznakaNumber + '\'' +
-                ", permissionNumber='" + permissionNumber + '\'' +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                '}';
+        return "Instruktor " + name + " " + surname +
+                ", numer odznaki " + odznakaNumber +
+                ", numer uprawnien " + permissionNumber;
     }
 }
 
